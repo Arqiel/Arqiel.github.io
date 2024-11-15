@@ -44,14 +44,16 @@ function renderPosts() {
         postDiv.appendChild(postTitle);
         postDiv.appendChild(postContent);
 
-        // თუ პოსტს აქვს სურათი, დაამატეთ
-        if (post.image) {
-            const postImage = document.createElement("img");
-            postImage.src = post.image;
-            postImage.alt = post.title;
-            postImage.classList.add("post-image"); // CSS კლასი დამატება
+        // თუ პოსტს აქვს სურათები, დაამატეთ
+        if (post.images && Array.isArray(post.images)) {
+            post.images.forEach(imageSrc => {
+                const postImage = document.createElement("img");
+                postImage.src = imageSrc;
+                postImage.alt = post.title;
+                postImage.classList.add("post-image"); // CSS კლასი დამატება
 
-            postDiv.appendChild(postImage);
+                postDiv.appendChild(postImage);
+            });
         }
 
         // თუ პოსტს აქვს ვიდეო, დაამატეთ
