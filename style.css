@@ -32,6 +32,7 @@ nav ul {
     justify-content: center;
     list-style-type: none;
     margin-top: 1rem;
+    gap: 1rem; /* Gap between nav items */
 }
 
 nav ul li {
@@ -93,6 +94,22 @@ h2 {
     font-size: 1rem;
 }
 
+.post-image {
+    width: 100%; /* Fill container width */
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.post-video {
+    width: 100%; /* Fill container width */
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 8px;
+}
+
 footer {
     background: #333;
     color: #fff;
@@ -100,18 +117,13 @@ footer {
     padding: 1rem;
     margin-top: 2rem;
 }
-/* style.css */
-.post-image {
-    width: 300px; /* სურათის სიგანე */
-    height: auto; /* სიმაღლე ავტომატურად */
-    border-radius: 8px; /* მოამრგვალეთ კუთხეები */
-    margin-top: 10px; /* სივრცე სურათის ზემოთ */
-}
-/* style.css */
-.post-video {
-    width: 100%; /* ვიდეოს შევსება */
-    max-width: 600px; /* მაქსიმალური სიგანე */
-    height: auto;
-    margin-top: 10px;
-    border-radius: 8px;
 
+/* Footer link hover effect */
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #ffd700;
+}
