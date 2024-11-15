@@ -1,32 +1,3 @@
-// ბლოგ პოსტების მასივი
-const posts = [
-    {
-        title: "ჩემი პირველი ბლოგის პოსტი",
-        content: "მოგესალმებით ჩემს პირველ ბლოგ პოსტში! მოხარული ვარ ყველას გაგიზიაროთ ჩემი მოგზაურობა და იდეები. დარჩით მეტი!",
-        image: "", // სურათის ბმული
-        video: "VIDEO/002.mp4" // ვიდეოს ბმული
-    },
-    {
-        title: "JavaScript რჩევები და ხრიკები",
-        content: "JavaScript არის მრავალმხრივი ენა, რომლის დაუფლებაც რთულია. აქ მოცემულია რამდენიმე რჩევა, რომელიც დაგეხმარებათ გახდეთ JavaScript-ის პროფესიონალი!",
-        images: ["FOTO/კრისტენ.jpg", "m01.jpg", "m02.jpg", "m03.jpg"], // სურათების მასივი
-        video: "" // ვიდეოს ბმული
-    },
-    {
-        title: "CSS-ის სილამაზე",
-        content: "CSS-ს შეუძლია უბრალო ვებგვერდი გარდაქმნას რაღაც ლამაზად და ფუნქციონალურად. მოდით ერთად გამოვიკვლიოთ CSS-ის ძალა.",
-        image: "FOTO/snipers.jpg", // სურათის ბმული
-        video: "" // ვიდეოს ბმული
-    },
-    {
-        title: "სილამაზე",
-        content: "პეიზაჟი",
-        image: "", // სურათის ბმული
-        video: "VIDEO/003.mp4" // ვიდეოს ბმული
-    }
-];
-
-
 // ფუნქცია პოსტების გამოსატანად
 function renderPosts() {
     const postContainer = document.getElementById("post-container");
@@ -44,8 +15,17 @@ function renderPosts() {
         postDiv.appendChild(postTitle);
         postDiv.appendChild(postContent);
 
-        // თუ პოსტს აქვს სურათები, დაამატეთ
-        if (post.images && Array.isArray(post.images)) {
+        // თუ პოსტს აქვს მხოლოდ ერთი სურათი, დაამატეთ
+        if (post.image) {
+            const postImage = document.createElement("img");
+            postImage.src = post.image;
+            postImage.alt = post.title;
+            postImage.classList.add("post-image"); // CSS კლასი დამატება
+
+            postDiv.appendChild(postImage);
+        }
+        // თუ პოსტს აქვს მრავალი სურათი, დაამატეთ თითოეული
+        else if (post.images && Array.isArray(post.images)) {
             post.images.forEach(imageSrc => {
                 const postImage = document.createElement("img");
                 postImage.src = imageSrc;
