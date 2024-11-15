@@ -1,29 +1,38 @@
-// ბლოგ პოსტების მასივი
+// ბლოგ პოსტების მაგალითი
 const posts = [
     {
-        title: "ჩემი პირველი ბლოგის პოსტი",
-        content: "მოგესალმებით ჩემს პირველ ბლოგ პოსტში! მოხარული ვარ ყველას გაგიზიაროთ ჩემი მოგზაურობა და იდეები. დარჩით მეტი!",
-        image: "", // სურათის ბმული
-        video: "VIDEO/002.mp4" // ვიდეოს ბმული
+        title: 'ჩემი პირველი პოსტი',
+        content: 'ეს არის ჩემი პირველი ბლოგი, სადაც გავუზიარებ ჩემს საყვარელ გამოცდილებას.',
+        image: 'https://via.placeholder.com/300',
+        video: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
     },
     {
-        title: "JavaScript რჩევები და ხრიკები",
-        content: "JavaScript არის მრავალმხრივი ენა, რომლის დაუფლებაც რთულია. აქ მოცემულია რამდენიმე რჩევა, რომელიც დაგეხმარებათ გახდეთ JavaScript-ის პროფესიონალი!",
-        images: ["FOTO/კრისტენ.jpg", "m01.jpg", "m02.jpg", "m03.jpg"], // სურათების მასივი
-        video: "" // ვიდეოს ბმული
-    },
-    {
-        title: "CSS-ის სილამაზე",
-        content: "CSS-ს შეუძლია უბრალო ვებგვერდი გარდაქმნას რაღაც ლამაზად და ფუნქციონალურად. მოდით ერთად გამოვიკვლიოთ CSS-ის ძალა.",
-        image: "FOTO/snipers.jpg", // სურათის ბმული
-        video: "" // ვიდეოს ბმული
-    },
-    {
-        title: "სილამაზე",
-        content: "პეიზაჟი",
-        image: "", // სურათის ბმული
-        video: "VIDEO/003.mp4" // ვიდეოს ბმული
+        title: 'მეორე პოსტი',
+        content: 'მეორე პოსტი ეხება იმ ფაქტს, რომ განათლება არის მთავარი!',
+        image: 'https://via.placeholder.com/300',
+        video: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
     }
+];
+
+// პოსტების კონტეინერის ამოღება
+const postContainer = document.getElementById('post-container');
+
+// თითოეული პოსტის გავლით HTML-ის შექმნა
+posts.forEach(post => {
+    const postElement = document.createElement('div');
+    postElement.classList.add('post');
+
+    postElement.innerHTML = `
+        <h3>${post.title}</h3>
+        <p>${post.content}</p>
+        <img src="${post.image}" class="post-image" alt="${post.title}">
+        <iframe class="post-video" src="${post.video}" frameborder="0" allowfullscreen></iframe>
+    `;
+
+    // პოსტების კონტეინერში დამატება
+    postContainer.appendChild(postElement);
+});
+
 ];
 
 // ფუნქცია პოსტების გამოსატანად
