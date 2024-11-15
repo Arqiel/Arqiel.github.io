@@ -10,7 +10,7 @@ const posts = [
         title: 'მეორე პოსტი',
         content: 'მეორე პოსტი ეხება იმ ფაქტს, რომ განათლება არის მთავარი!',
         image: 'https://via.placeholder.com/300',
-        video: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
+        video: 'https://www.youtube.com/watch?v=uM5uirY1Fik'
     }
 ];
 
