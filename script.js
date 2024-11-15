@@ -17,73 +17,40 @@ const posts = [
 // პოსტების კონტეინერის ამოღება
 const postContainer = document.getElementById('post-container');
 
-// თითოეული პოსტის გავლით HTML-ის შექმნა
-posts.forEach(post => {
-    const postElement = document.createElement('div');
-    postElement.classList.add('post');
-
-    postElement.innerHTML = `
-        <h3>${post.title}</h3>
-        <p>${post.content}</p>
-        <img src="${post.image}" class="post-image" alt="${post.title}">
-        <iframe class="post-video" src="${post.video}" frameborder="0" allowfullscreen></iframe>
-    `;
-
-    // პოსტების კონტეინერში დამატება
-    postContainer.appendChild(postElement);
-});
-
-];
-
 // ფუნქცია პოსტების გამოსატანად
 function renderPosts() {
-    const postContainer = document.getElementById("post-container");
-
     posts.forEach(post => {
-        const postDiv = document.createElement("div");
-        postDiv.classList.add("post");
+        const postElement = document.createElement('div');
+        postElement.classList.add('post');
 
-        const postTitle = document.createElement("h3");
+        const postTitle = document.createElement('h3');
         postTitle.textContent = post.title;
 
-        const postContent = document.createElement("p");
+        const postContent = document.createElement('p');
         postContent.textContent = post.content;
 
-        postDiv.appendChild(postTitle);
-        postDiv.appendChild(postContent);
+        postElement.appendChild(postTitle);
+        postElement.appendChild(postContent);
 
-        // თუ პოსტს აქვს სურათები, დაამატეთ ყველა სურათი
-        if (post.images) {
-            post.images.forEach(image => {
-                const postImage = document.createElement("img");
-                postImage.src = image;
-                postImage.alt = post.title;
-                postImage.classList.add("post-image");
-                postDiv.appendChild(postImage);
-            });
-        } else if (post.image) { // თუ ერთი სურათი არსებობს
-            const postImage = document.createElement("img");
-            postImage.src = post.image;
-            postImage.alt = post.title;
-            postImage.classList.add("post-image");
-            postDiv.appendChild(postImage);
-        } else { // თუ არცერთი სურათი არ არის, დაამატე დეფოლტური სურათი
-            const defaultImage = document.createElement("img");
-            defaultImage.src = "path/to/default-image.jpg";  // ჩაანაცვლე რეალური სურათით
-            defaultImage.alt = "Default Image";
-            postDiv.appendChild(defaultImage);
-        }
+        // თუ პოსტს აქვს სურათი, დაამატეთ სურათი
+        const postImage = document.createElement('img');
+        postImage.src = post.image || "path/to/default-image.jpg";  // დეფოლტური სურათი თუ არ არის პოსტის სურათი
+        postImage.alt = post.title;
+        postImage.classList.add('post-image');
+        postElement.appendChild(postImage);
 
-        // თუ პოსტს აქვს ვიდეო, დაამატეთ
+        // თუ პოსტს აქვს ვიდეო, დაამატეთ ვიდეო
         if (post.video) {
-            const postVideo = document.createElement("video");
+            const postVideo = document.createElement('iframe');
             postVideo.src = post.video;
-            postVideo.controls = true; // ვიდეოს მართვის ელემენტების ჩართვა
-            postVideo.classList.add("post-video"); // ვიდეოს CSS კლასი
-            postDiv.appendChild(postVideo);
+            postVideo.frameBorder = 0;
+            postVideo.allowFullscreen = true;
+            postVideo.classList.add('post-video');
+            postElement.appendChild(postVideo);
         }
 
-        postContainer.appendChild(postDiv);
+        // პოსტების კონტეინერში დამატება
+        postContainer.appendChild(postElement);
     });
 }
 
