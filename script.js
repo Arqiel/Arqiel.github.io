@@ -53,6 +53,20 @@ function renderPosts() {
 
             postDiv.appendChild(postImage);
         }
+        if (post.image) {
+    const postImage = document.createElement("img");
+    postImage.src = post.image;
+    postImage.alt = post.title;
+    postImage.classList.add("post-image");
+    postDiv.appendChild(postImage);
+} else {
+    // თუ სურათი არ არის, დაამატე დეფოლტური სურათი
+    const defaultImage = document.createElement("img");
+    defaultImage.src = "path/to/default-image.jpg";  // ჩაანაცვლე რეალური სურათით
+    defaultImage.alt = "Default Image";
+    postDiv.appendChild(defaultImage);
+}
+
 
         // თუ პოსტს აქვს ვიდეო, დაამატეთ
         if (post.video) {
