@@ -119,5 +119,11 @@ body {
     font-family: 'Roboto', sans-serif;  /* გუგლის ფონტის დამატება */
     line-height: 1.7;
 }
+footer {
+    padding: 2rem;
+    background: #333;
+    color: #fff;
+    text-align: center;
+}
 
 
