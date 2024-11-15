@@ -3,7 +3,7 @@ const posts = [
     {
         title: 'ჩემი პირველი პოსტი',
         content: 'ეს არის ჩემი პირველი ბლოგი, სადაც გავუზიარებ ჩემს საყვარელ გამოცდილებას.',
-        image: 'm01.jpg',
+        image: 'FOTO/m01.jpg',
         video: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
     },
     {
