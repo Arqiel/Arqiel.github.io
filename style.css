@@ -115,5 +115,9 @@ footer {
     margin-top: 10px;
     border-radius: 8px;
 }
+body {
+    font-family: 'Roboto', sans-serif;  /* გუგლის ფონტის დამატება */
+    line-height: 1.7;
+}
 
 
