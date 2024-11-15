@@ -26,7 +26,6 @@ const posts = [
     }
 ];
 
-
 // ფუნქცია პოსტების გამოსატანად
 function renderPosts() {
     const postContainer = document.getElementById("post-container");
@@ -44,39 +43,27 @@ function renderPosts() {
         postDiv.appendChild(postTitle);
         postDiv.appendChild(postContent);
 
-        // თუ პოსტს აქვს სურათი, დაამატეთ
-        if (post.image) {
+        // თუ პოსტს აქვს სურათები, დაამატეთ ყველა სურათი
+        if (post.images) {
+            post.images.forEach(image => {
+                const postImage = document.createElement("img");
+                postImage.src = image;
+                postImage.alt = post.title;
+                postImage.classList.add("post-image");
+                postDiv.appendChild(postImage);
+            });
+        } else if (post.image) { // თუ ერთი სურათი არსებობს
             const postImage = document.createElement("img");
             postImage.src = post.image;
             postImage.alt = post.title;
-            postImage.classList.add("post-image"); // CSS კლასი დამატება
-
+            postImage.classList.add("post-image");
             postDiv.appendChild(postImage);
+        } else { // თუ არცერთი სურათი არ არის, დაამატე დეფოლტური სურათი
+            const defaultImage = document.createElement("img");
+            defaultImage.src = "path/to/default-image.jpg";  // ჩაანაცვლე რეალური სურათით
+            defaultImage.alt = "Default Image";
+            postDiv.appendChild(defaultImage);
         }
-        if (post.images) {
-    post.images.forEach(image => {
-        const postImage = document.createElement("img");
-        postImage.src = image;
-        postImage.alt = post.title;
-        postImage.classList.add("post-image");
-        postDiv.appendChild(postImage);
-    });
-}
-
-        if (post.image) {
-    const postImage = document.createElement("img");
-    postImage.src = post.image;
-    postImage.alt = post.title;
-    postImage.classList.add("post-image");
-    postDiv.appendChild(postImage);
-} else {
-    // თუ სურათი არ არის, დაამატე დეფოლტური სურათი
-    const defaultImage = document.createElement("img");
-    defaultImage.src = "path/to/default-image.jpg";  // ჩაანაცვლე რეალური სურათით
-    defaultImage.alt = "Default Image";
-    postDiv.appendChild(defaultImage);
-}
-
 
         // თუ პოსტს აქვს ვიდეო, დაამატეთ
         if (post.video) {
@@ -84,9 +71,6 @@ function renderPosts() {
             postVideo.src = post.video;
             postVideo.controls = true; // ვიდეოს მართვის ელემენტების ჩართვა
             postVideo.classList.add("post-video"); // ვიდეოს CSS კლასი
-            postVideo.autoplay = true;
-
-
             postDiv.appendChild(postVideo);
         }
 
