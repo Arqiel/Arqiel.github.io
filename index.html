@@ -41,6 +41,54 @@
         <p>&copy; 2024 My Blog | Designed with ❤️</p>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // პოსტების მონაცემები
+            const posts = [
+                {
+                    title: 'პირველი ბლოგი',
+                    content: 'ეს არის ჩემი პირველი ბლოგი, რომელშიც მე ვყვები ჩემს გამოცდილებაზე.',
+                    image: 'https://via.placeholder.com/300'
+                },
+                {
+                    title: 'მეორე ბლოგი',
+                    content: 'ეს პოსტი შეეხება ტכנולוגიას და როგორ შევქმნათ აპლიკაციები Python-ში.',
+                    image: 'https://via.placeholder.com/300'
+                },
+                {
+                    title: 'სამი ბლოგი',
+                    content: 'მესამე პოსტი ასახავს ჩემს მოგზაურობას საქართველოს სხვადასხვა კუთხეში.',
+                    image: 'https://via.placeholder.com/300'
+                }
+            ];
+
+            const postContainer = document.getElementById('post-container');
+
+            // პოსტების შექმნა
+            posts.forEach(function(post) {
+                const postElement = document.createElement('div');
+                postElement.classList.add('post');
+
+                const postTitle = document.createElement('h3');
+                postTitle.textContent = post.title;
+
+                const postContent = document.createElement('p');
+                postContent.textContent = post.content;
+
+                const postImage = document.createElement('img');
+                postImage.src = post.image;
+                postImage.alt = post.title;
+                postImage.classList.add('post-image');
+
+                postElement.appendChild(postTitle);
+                postElement.appendChild(postContent);
+                postElement.appendChild(postImage);
+
+                postContainer.appendChild(postElement);
+            });
+        });
+    </script>
+
     <script src="script.js"></script>
 </body>
 </html>
