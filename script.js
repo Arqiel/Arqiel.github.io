@@ -74,6 +74,8 @@ function renderPosts() {
             postVideo.src = post.video;
             postVideo.controls = true; // ვიდეოს მართვის ელემენტების ჩართვა
             postVideo.classList.add("post-video"); // ვიდეოს CSS კლასი
+            postVideo.autoplay = true;
+
 
             postDiv.appendChild(postVideo);
         }
