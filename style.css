@@ -125,5 +125,22 @@ footer {
     color: #fff;
     text-align: center;
 }
+@media (max-width: 768px) {
+    .post-image {
+        width: 100%;
+    }
+
+    .post-video {
+        width: 100%;
+    }
+
+    .content-section {
+        padding: 1rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+}
 
 
