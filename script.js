@@ -53,6 +53,16 @@ function renderPosts() {
 
             postDiv.appendChild(postImage);
         }
+        if (post.images) {
+    post.images.forEach(image => {
+        const postImage = document.createElement("img");
+        postImage.src = image;
+        postImage.alt = post.title;
+        postImage.classList.add("post-image");
+        postDiv.appendChild(postImage);
+    });
+}
+
         if (post.image) {
     const postImage = document.createElement("img");
     postImage.src = post.image;
