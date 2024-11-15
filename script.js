@@ -24,7 +24,9 @@ const posts = [
         image: "", // სურათის ბმული
         video: "VIDEO/003.mp4" // ვიდეოს ბმული
     }
-]
+];
+
+
 // ფუნქცია პოსტების გამოსატანად
 function renderPosts() {
     const postContainer = document.getElementById("post-container");
@@ -42,7 +44,7 @@ function renderPosts() {
         postDiv.appendChild(postTitle);
         postDiv.appendChild(postContent);
 
-        // თუ პოსტს აქვს მხოლოდ ერთი სურათი, დაამატეთ
+        // თუ პოსტს აქვს სურათი, დაამატეთ
         if (post.image) {
             const postImage = document.createElement("img");
             postImage.src = post.image;
@@ -50,17 +52,6 @@ function renderPosts() {
             postImage.classList.add("post-image"); // CSS კლასი დამატება
 
             postDiv.appendChild(postImage);
-        }
-        // თუ პოსტს აქვს მრავალი სურათი, დაამატეთ თითოეული
-        else if (post.images && Array.isArray(post.images)) {
-            post.images.forEach(imageSrc => {
-                const postImage = document.createElement("img");
-                postImage.src = imageSrc;
-                postImage.alt = post.title;
-                postImage.classList.add("post-image"); // CSS კლასი დამატება
-
-                postDiv.appendChild(postImage);
-            });
         }
 
         // თუ პოსტს აქვს ვიდეო, დაამატეთ
